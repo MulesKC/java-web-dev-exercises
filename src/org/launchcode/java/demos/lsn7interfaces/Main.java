@@ -1,12 +1,37 @@
 package org.launchcode.java.demos.lsn7interfaces;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args){
         Case menu = new Case();
         ArrayList<Flavor> flavors = menu.getFlavors();
         ArrayList<Cone> cones = menu.getCones();
+
+        for (Flavor f : flavors) {
+            System.out.println(f.getName());
+        }
+
+
+        System.out.println("\n\n");
+        flavors.sort(new FlavorComparator());
+
+        for (Flavor f : flavors) {
+            System.out.println(f.getName());
+        }
+
+        for (Cone c : cones) {
+            System.out.println(c.getName() + ": $" + c.getCost());
+        }
+
+        System.out.println("\n\n");
+
+        cones.sort(new ConeComparator());
+
+        for (Cone c : cones) {
+            System.out.println(c.getName() + ": $" + c.getCost());
+        }
 
         // TODO: Use a Comparator class to sort the 'flavors' array alphabetically by the 'name'
         //  field.
